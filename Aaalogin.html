@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yash Sport Smart</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+
+        /* ================= LOGIN PAGE ================= */
+
+        #login-page {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f2f2f2;
+        }
+
+        .login-box {
+            width: 350px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .login-box h1 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .login-box p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background-color: #ff9900;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .login-btn:hover {
+            background-color: #e68900;
+        }
+
+        .register-link {
+            margin-top: 15px;
+            color: #555;
+        }
+
+        .register-link a {
+            color: #e68900;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+
+        /* ================= REGISTER PAGE ================= */
+
+        #register-page {
+            min-height: 100vh;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background-color: #f2f2f2;
+        }
+
+        .register-box {
+            width: 350px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .register-box h1 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .register-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .register-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background-color: #ff9900;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .register-btn:hover {
+            background-color: #e68900;
+        }
+
+
+        /* ================= PRODUCTS PAGE ================= */
+
+        #products-page {
+            display: none;
+        }
+
+
+        /* Header */
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        header p {
+            margin: 8px 0 0;
+            font-size: 18px;
+        }
+
+
+        /* Navigation */
+
+        nav {
+            background-color: #222;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #ff9900;
+        }
+
+
+        /* Product container */
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        /* Product card */
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+
+        /* Product hover effect */
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+        }
+
+
+        /* Product image */
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            display: block;
+            background-color: white;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+
+        /* Product details */
+
+        .product-details {
+            padding: 15px 20px 20px;
+        }
+
+
+        /* Product name */
+
+        .product-details h2 {
+            margin: 5px 0 10px;
+            font-size: 22px;
+            color: #222;
+        }
+
+
+        /* Price */
+
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #e53935;
+            margin: 10px 0;
+        }
+
+
+        /* Description */
+
+        .description {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+
+        /* Features heading */
+
+        .product-details h3 {
+            text-align: left;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 17px;
+            color: #333;
+        }
+
+
+        /* Features list */
+
+        .product-details ul {
+            text-align: left;
+            line-height: 1.7;
+            padding-left: 20px;
+            margin-top: 5px;
+            color: #555;
+        }
+
+
+        /* Buy button */
+
+        .buy-btn {
+            background-color: #ff9900;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+
+        /* Buy button hover */
+
+        .buy-btn:hover {
+            background-color: #e68900;
+        }
+
+
+        /* Logout button */
+
+        .logout-btn {
+            background-color: #e53935;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .logout-btn:hover {
+            background-color: #c62828;
+        }
+
+
+        /* Tablet screen */
+
+        @media (max-width: 900px) {
+
+            .product-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* Mobile screen */
+
+        @media (max-width: 600px) {
+
+            .product-container {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            .product-card img {
+                height: 250px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 14px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= LOGIN PAGE ================= -->
+
+    <div id="login-page">
+
+        <div class="login-box">
+
+            <h1>🏆 Yash Sport Smart</h1>
+
+            <p>Welcome to Yash Sport Smart</p>
+
+            <input
+                type="email"
+                id="login-email"
+                placeholder="Enter Email"
+            >
+
+            <input
+                type="password"
+                id="login-password"
+                placeholder="Enter Password"
+            >
+
+            <button
+                class="login-btn"
+                onclick="login()"
+            >
+                Login
+            </button>
+
+            <div class="register-link">
+
+                Don't have an account?
+
+                <a onclick="showRegister()">
+                    Register
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= REGISTER PAGE ================= -->
+
+    <div id="register-page">
+
+        <div class="register-box">
+
+            <h1>🏆 Yash Sport Smart</h1>
+
+            <p>Create your account</p>
+
+            <input
+                type="text"
+                id="register-name"
+                placeholder="Enter Your Name"
+            >
+
+            <input
+                type="email"
+                id="register-email"
+                placeholder="Enter Email"
+            >
+
+            <input
+                type="password"
+                id="register-password"
+                placeholder="Create Password"
+            >
+
+            <button
+                class="register-btn"
+                onclick="register()"
+            >
+                Register
+            </button>
+
+            <div class="register-link">
+
+                Already have an account?
+
+                <a onclick="showLogin()">
+                    Login
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= PRODUCTS PAGE ================= -->
+
+    <div id="products-page">
+
+
+        <!-- Header -->
+
+        <header>
+
+            <h1>🏆 YASH SPORT SMART 🏆</h1>
+
+            <p>
+                Your One-Stop Shop for Sports Products
+            </p>
+
+        </header>
+
+
+        <!-- Navigation -->
+
+        <nav>
+
+            <a href="#">Home</a>
+
+            <a href="#">Cricket</a>
+
+            <a href="#">Football</a>
+
+            <a href="#">Badminton</a>
+
+            <a href="#">Basketball</a>
+
+            <button
+                class="logout-btn"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </nav>
+
+
+
+        <!-- Product container -->
+
+        <div class="product-container">
+
+
+            <!-- Cricket Bat -->
+
+            <div class="product-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1531415074968-036ba1b575da"
+                    alt="Cricket Bat"
+                >
+
+                <div class="product-details">
+
+                    <h2>Cricket Bat</h2>
+
+                    <div class="price">
+                        ₹1,500
+                    </div>
+
+                    <p class="description">
+
+                        Professional quality cricket bat
+                        suitable for practice and matches.
+
+                    </p>
+
+                    <h3>Features</h3>
+
+                    <ul>
+
+                        <li>Premium Quality</li>
+
+                        <li>Light Weight</li>
+
+                        <li>Strong Handle</li>
+
+                    </ul>
+
+                    <button
+                        class="buy-btn"
+                        onclick="buyProduct('Cricket Bat')"
+                    >
+                        Buy Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Football -->
+
+            <div class="product-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55"
+                    alt="Football"
+                >
+
+                <div class="product-details">
+
+                    <h2>Football</h2>
+
+                    <div class="price">
+                        ₹800
+                    </div>
+
+                    <p class="description">
+
+                        High quality football for
+                        training and professional games.
+
+                    </p>
+
+                    <h3>Features</h3>
+
+                    <ul>
+
+                        <li>Durable Material</li>
+
+                        <li>Water Resistant</li>
+
+                        <li>Excellent Grip</li>
+
+                    </ul>
+
+                    <button
+                        class="buy-btn"
+                        onclick="buyProduct('Football')"
+                    >
+                        Buy Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Badminton Racket -->
+
+            <div class="product-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea"
+                    alt="Badminton Racket"
+                >
+
+                <div class="product-details">
+
+                    <h2>Badminton Racket</h2>
+
+                    <div class="price">
+                        ₹1,200
+                    </div>
+
+                    <p class="description">
+
+                        Lightweight badminton racket
+                        with excellent control.
+
+                    </p>
+
+                    <h3>Features</h3>
+
+                    <ul>
+
+                        <li>Light Weight</li>
+
+                        <li>Strong Frame</li>
+
+                        <li>Comfortable Grip</li>
+
+                    </ul>
+
+                    <button
+                        class="buy-btn"
+                        onclick="buyProduct('Badminton Racket')"
+                    >
+                        Buy Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Basketball -->
+
+            <div class="product-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1546519638-68e109498ffc"
+                    alt="Basketball"
+                >
+
+                <div class="product-details">
+
+                    <h2>Basketball</h2>
+
+                    <div class="price">
+                        ₹1,000
+                    </div>
+
+                    <p class="description">
+
+                        Premium basketball suitable
+                        for indoor and outdoor games.
+
+                    </p>
+
+                    <h3>Features</h3>
+
+                    <ul>
+
+                        <li>Strong Material</li>
+
+                        <li>Good Bounce</li>
+
+                        <li>Excellent Grip</li>
+
+                    </ul>
+
+                    <button
+                        class="buy-btn"
+                        onclick="buyProduct('Basketball')"
+                    >
+                        Buy Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Tennis Racket -->
+
+            <div class="product-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0"
+                    alt="Tennis Racket"
+                >
+
+                <div class="product-details">
+
+                    <h2>Tennis Racket</h2>
+
+                    <div class="price">
+                        ₹1,800
+                    </div>
+
+                    <p class="description">
+
+                        Professional tennis racket
+                        for better performance.
+
+                    </p>
+
+                    <h3>Features</h3>
+
+                    <ul>
+
+                        <li>Light Weight</li>
+
+                        <li>Strong Frame</li>
+
+                        <li>Comfortable Handle</li>
+
+                    </ul>
+
+                    <button
+                        class="buy-btn"
+                        onclick="buyProduct('Tennis Racket')"
+                    >
+                        Buy Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Sports Shoes -->
+
+            <div class="product-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff"
+                    alt="Sports Shoes"
+                >
+
+                <div class="product-details">
+
+                    <h2>Sports Shoes</h2>
+
+                    <div class="price">
+                        ₹2,000
+                    </div>
+
+                    <p class="description">
+
+                        Comfortable sports shoes
+                        suitable for running and training.
+
+                    </p>
+
+                    <h3>Features</h3>
+
+                    <ul>
+
+                        <li>Comfortable</li>
+
+                        <li>Light Weight</li>
+
+                        <li>Strong Sole</li>
+
+                    </ul>
+
+                    <button
+                        class="buy-btn"
+                        onclick="buyProduct('Sports Shoes')"
+                    >
+                        Buy Now
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+
+        /* Show Register */
+
+        function showRegister() {
+
+            document.getElementById("login-page").style.display = "none";
+
+            document.getElementById("register-page").style.display = "flex";
+
+        }
+
+
+        /* Show Login */
+
+        function showLogin() {
+
+            document.getElementById("register-page").style.display = "none";
+
+            document.getElementById("login-page").style.display = "flex";
+
+        }
+
+
+        /* Register */
+
+        function register() {
+
+            let name =
+                document.getElementById("register-name").value;
+
+            let email =
+                document.getElementById("register-email").value;
+
+            let password =
+                document.getElementById("register-password").value;
+
+
+            if (
+                name === "" ||
+                email === "" ||
+                password === ""
+            ) {
+
+                alert("Please fill all the details.");
+
+                return;
+
+            }
+
+
+            localStorage.setItem("name", name);
+
+            localStorage.setItem("email", email);
+
+            localStorage.setItem("password", password);
+
+
+            alert("Registration Successful!");
+
+
+            showLogin();
+
+        }
+
+
+        /* Login */
+
+        function login() {
+
+            let email =
+                document.getElementById("login-email").value;
+
+            let password =
+                document.getElementById("login-password").value;
+
+
+            let savedEmail =
+                localStorage.getItem("email");
+
+            let savedPassword =
+                localStorage.getItem("password");
+
+
+            if (
+                email === savedEmail &&
+                password === savedPassword
+            ) {
+
+                alert("Login Successful!");
+
+                document.getElementById("login-page").style.display = "none";
+
+                document.getElementById("products-page").style.display = "block";
+
+            }
+
+            else {
+
+                alert("Invalid Email or Password!");
+
+            }
+
+        }
+
+
+        /* Logout */
+
+        function logout() {
+
+            document.getElementById("products-page").style.display = "none";
+
+            document.getElementById("login-page").style.display = "flex";
+
+        }
+
+
+        /* Buy Product */
+
+        function buyProduct(productName) {
+
+            alert(
+                productName +
+                " selected successfully!"
+            );
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
