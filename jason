@@ -1,0 +1,10 @@
+{
+  "listeners": [{"address": "0.0.0.0", "port": 8080, "https": false}],
+  "db_clients": [],
+  "app": {
+    "threads_num": 2,
+    "document_root": "./public",
+    "home_page": "index.html",
+    "log": {"log_level": "INFO"}
+  }
+}
